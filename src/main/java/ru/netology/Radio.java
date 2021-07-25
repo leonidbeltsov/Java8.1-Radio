@@ -26,10 +26,7 @@ public class Radio {
 
     // Выбор станции с помощью цифровых клавиш
     public void setStationWithNumButton(int numButtonStation) {
-        if (numButtonStation < minNumStation) {
-            return;
-        }
-        if (numButtonStation > maxNumStation) {
+        if (numButtonStation < minNumStation || numButtonStation > maxNumStation) {
             return;
         }
         currentStation = numButtonStation;
