@@ -1,5 +1,11 @@
 package ru.netology;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+
 public class Radio {
     private final int minNumStation = 0;
     private final int minVolume = 0;
@@ -9,28 +15,9 @@ public class Radio {
     private int maxNumStation = 9;
     private int currentVolume;
 
-    public Radio() {
-    }
-
     public Radio(int amountStation) {
         this.amountStation = amountStation;
         this.maxNumStation = this.amountStation - 1;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int currentStation) {
-        this.currentStation = currentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
     }
 
     // Выбор станции с помощью цифровых клавиш
