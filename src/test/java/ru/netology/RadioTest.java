@@ -10,16 +10,17 @@ class RadioTest {
     // Выбор станции с помощью цифровых клавиш
     @Test
     public void shouldSetStationWithNumButton() {
-        radio.setStationWithNumButton(7);
+        Radio radio = new Radio(20);
+        radio.setStationWithNumButton(17);
 
-        assertEquals(7, radio.getCurrentStation());
+        assertEquals(17, radio.getCurrentStation());
     }
 
     // Сверх лимита
     @Test
     public void shouldNotSetStationWithNumButtonAboveLimit() {
-        radio.setStationWithNumButton(10);
-
+        Radio radio = new Radio(20);
+        radio.setStationWithNumButton(21);
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -42,7 +43,8 @@ class RadioTest {
 
     @Test
     public void shouldSetFirstStation() {
-        radio.setCurrentStation(9);
+        Radio radio = new Radio(20);
+        radio.setCurrentStation(20);
 
         radio.setNextStation();
         assertEquals(0, radio.getCurrentStation());
@@ -59,32 +61,32 @@ class RadioTest {
 
     @Test
     public void shouldSetLastStation() {
-        radio.setPrevStation();
+        radio.setCurrentStation(0);
 
-//        radio.setCurrentStation(0);
-        assertEquals(9, radio.getCurrentStation());
+        radio.setPrevStation();
+        assertEquals(10, radio.getCurrentStation());
     }
 
     // Увеличение громкости
     @Test
-    public void shouldVolumeUp(){
-        radio.setCurrentVolume(5);
+    public void shouldVolumeUp() {
+        radio.setCurrentVolume(77);
 
         radio.volumeUp();
-        assertEquals(6, radio.getCurrentVolume());
+        assertEquals(78, radio.getCurrentVolume());
     }
 
     @Test
-    public void shouldNotVolumeUp(){
-        radio.setCurrentVolume(10);
+    public void shouldNotVolumeUp() {
+        radio.setCurrentVolume(100);
 
         radio.volumeUp();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     // Уменьшение громкости
     @Test
-    public void shouldVolumeDown(){
+    public void shouldVolumeDown() {
         radio.setCurrentVolume(5);
 
         radio.volumeDown();
@@ -92,7 +94,7 @@ class RadioTest {
     }
 
     @Test
-    public void shouldNotVolumeDown(){
+    public void shouldNotVolumeDown() {
         radio.setCurrentVolume(0);
 
         radio.volumeDown();
